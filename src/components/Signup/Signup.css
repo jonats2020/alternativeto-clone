@@ -1,0 +1,24 @@
+.signup__container {
+    align-items: center;
+    background-color: #2c4961;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.signup__panel {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+.MuiTextField-root {
+    margin-bottom: 20px !important;
+}
