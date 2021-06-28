@@ -25,6 +25,15 @@ function UserEdit() {
                 <TextField variant="filled" size="small" />
                 <TextField variant="filled" size="small" />
               </div>
+
+              <Typography
+                variant="body1"
+                style={{
+                  marginTop: 20,
+                }}
+              >
+                Bio
+              </Typography>
             </div>
           </div>
 
