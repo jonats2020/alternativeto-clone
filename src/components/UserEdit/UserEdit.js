@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-import { Typography } from "@material-ui/core";
+import { Typography, TextField } from "@material-ui/core";
 
 import "./UserEdit.css";
 import logo from "../../images/logo-new.svg";
@@ -21,6 +21,10 @@ function UserEdit() {
           <div className="section">
             <div className="title">
               <Typography>About yourself</Typography>
+              <div className="realName">
+                <TextField variant="filled" size="small" />
+                <TextField variant="filled" size="small" />
+              </div>
             </div>
           </div>
 
