@@ -17,8 +17,8 @@ function UserEdit() {
 
   const [valuesToUpload, setValuesToUpload] = useState({});
 
-  const handleUpdateValues = (fieldName, event) => {
-    setValuesToUpload({ ...valuesToUpload, [fieldName]: event.target.value });
+  const handleUpdateValues = (fieldName, value) => {
+    setValuesToUpload({ ...valuesToUpload, [fieldName]: value });
   };
 
   console.log(valuesToUpload);
@@ -50,14 +50,14 @@ function UserEdit() {
                 variant="filled"
                 size="small"
                 placeholder="first name"
-                onChange={e => handleUpdateValues("firstName", e)}
+                onChange={e => handleUpdateValues("firstName", e.target.value)}
               />
 
               <TextField
                 variant="filled"
                 size="small"
                 placeholder="last name"
-                onChange={e => handleUpdateValues("lastName", e)}
+                onChange={e => handleUpdateValues("lastName", e.target.value)}
               />
             </div>
 
@@ -73,7 +73,7 @@ function UserEdit() {
               variant="filled"
               multiline
               rows={4}
-              onChange={e => handleUpdateValues("bio", e)}
+              onChange={e => handleUpdateValues("bio", e.target.value)}
               fullWidth
             />
 
@@ -86,7 +86,7 @@ function UserEdit() {
               size="small"
               placeholder="Pick a city"
               fullWidth
-              onChange={e => handleUpdateValues("city", e)}
+              onChange={e => handleUpdateValues("city", e.target.value)}
             />
 
             <Typography variant="body1" style={{ marginTop: 20 }}>
@@ -116,7 +116,7 @@ function UserEdit() {
               style={{
                 marginBottom: 0,
               }}
-              onChange={e => handleUpdateValues("twitter", e)}
+              onChange={e => handleUpdateValues("twitter", e.target.value)}
             />
             <Typography
               variant="caption"
@@ -137,7 +137,7 @@ function UserEdit() {
               style={{
                 marginBottom: 0,
               }}
-              onChange={e => handleUpdateValues("linkedin", e)}
+              onChange={e => handleUpdateValues("linkedin", e.target.value)}
             />
             <Typography
               variant="caption"
@@ -160,6 +160,7 @@ function UserEdit() {
               style={{
                 marginBottom: 0,
               }}
+              onChange={e => handleUpdateValues("reddit", e.target.value)}
             />
             <Typography
               variant="caption"
@@ -181,6 +182,7 @@ function UserEdit() {
               style={{
                 marginBottom: 0,
               }}
+              onChange={e => handleUpdateValues("github", e.target.value)}
             />
             <Typography
               variant="caption"
@@ -202,6 +204,7 @@ function UserEdit() {
               style={{
                 marginBottom: 0,
               }}
+              onChange={e => handleUpdateValues("youtube", e.target.value)}
             />
             <Typography
               variant="caption"
@@ -223,6 +226,7 @@ function UserEdit() {
               style={{
                 marginBottom: 0,
               }}
+              onChange={e => handleUpdateValues("instagram", e.target.value)}
             />
             <Typography
               variant="caption"
@@ -244,6 +248,7 @@ function UserEdit() {
               style={{
                 marginBottom: 0,
               }}
+              onChange={e => handleUpdateValues("website", e.target.value)}
             />
             <Typography
               variant="caption"
@@ -269,23 +274,55 @@ function UserEdit() {
             </Typography>
 
             <FormControlLabel
-              control={<Checkbox name="checkedA" checked={false} />}
+              control={
+                <Checkbox
+                  name="checkedA"
+                  checked={valuesToUpload.sendPublicMessage}
+                />
+              }
               label="Sends me a public message"
+              onChange={e =>
+                handleUpdateValues("sendPublicMessage", e.target.checked)
+              }
             />
 
             <FormControlLabel
-              control={<Checkbox name="checkedB" checked={false} />}
+              control={
+                <Checkbox
+                  name="checkedB"
+                  checked={valuesToUpload.sendPrivateMessage}
+                />
+              }
               label="Sends me a private message"
+              onChange={e =>
+                handleUpdateValues("sendPrivateMessage", e.target.checked)
+              }
             />
 
             <FormControlLabel
-              control={<Checkbox name="checkedC" checked={false} />}
+              control={
+                <Checkbox
+                  name="checkedC"
+                  checked={valuesToUpload.applicationApproved}
+                />
+              }
               label="An application I submitted is approved"
+              onChange={e =>
+                handleUpdateValues("applicationApproved", e.target.checked)
+              }
             />
 
             <FormControlLabel
-              control={<Checkbox name="checkedD" checked={false} />}
+              control={
+                <Checkbox
+                  name="checkedD"
+                  checked={valuesToUpload.messageDiscussion}
+                />
+              }
               label="Post a message after me in a discussion"
+              onChange={e =>
+                handleUpdateValues("messageDiscussion", e.target.checked)
+              }
             />
           </div>
 
