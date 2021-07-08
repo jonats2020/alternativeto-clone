@@ -13,17 +13,27 @@ import logo from "../../images/logo-new.svg";
 import db from "../../firebase";
 
 function UserEdit() {
+  // Get the ID from the URL of the browser which was
+  // passed by the SignUp page
   const { id } = useParams();
 
+  // declare a state to store the data from the form
+  // e.g. textfield, checkboxes
   const [valuesToUpload, setValuesToUpload] = useState({});
 
   const handleUpdateValues = (fieldName, value) => {
+    // Save new values to setValuesToUpload state
+    // but keep the old values using the spread (...) operator
+    // [key]: value
     setValuesToUpload({ ...valuesToUpload, [fieldName]: value });
   };
 
+  // View in console the values that are being store in state
   console.log(valuesToUpload);
 
   const saveToFirebase = () => {
+    // Add new document with a random generated ID
+    // in Firebase under persons collection then save the valuesToUpload
     db.collection("persons").add(valuesToUpload);
   };
 
@@ -50,7 +60,9 @@ function UserEdit() {
                 variant="filled"
                 size="small"
                 placeholder="first name"
-                onChange={e => handleUpdateValues("firstName", e.target.value)}
+                onChange={event =>
+                  handleUpdateValues("firstName", event.target.value)
+                }
               />
 
               <TextField
