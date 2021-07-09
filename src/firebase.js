@@ -1,12 +1,13 @@
-import firebase from 'firebase';
+import firebase from "firebase";
 
 var firebaseConfig = {
-    apiKey: "AIzaSyAXaqvFgJGt_AL7ZeEVcQ-HI6rTdRl_efM",
-    authDomain: "project-alternativeto-clone.firebaseapp.com",
-    projectId: "project-alternativeto-clone",
-    storageBucket: "project-alternativeto-clone.appspot.com",
-    messagingSenderId: "63519273108",
-    appId: "1:63519273108:web:d7e37882fd7b72adb20481" }
+  apiKey: "AIzaSyCC8bsniSKxVfTD_DjwMfeAx7Bik5o-9i0",
+  authDomain: "alternativeto-clone01.firebaseapp.com",
+  projectId: "alternativeto-clone01",
+  storageBucket: "alternativeto-clone01.appspot.com",
+  messagingSenderId: "1087124467896",
+  appId: "1:1087124467896:web:97745616e18c5c9652c44d",
+};
 
 const app = firebase.initializeApp(firebaseConfig);
 

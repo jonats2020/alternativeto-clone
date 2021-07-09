@@ -1,0 +1,29 @@
+.body {
+  height: 100vh;
+  background-color: #efefef;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+  gap: 20px;
+}
+
+.software__detailsContainer {
+  background-color: white;
+  width: 90%;
+  height: auto;
+
+  border-radius: 10px;
+  max-width: 1080px;
+}
+
+.alternativesContainer {
+  background-color: white;
+  width: 90%;
+  height: auto;
+
+  border-radius: 10px;
+  max-width: 1080px;
+}

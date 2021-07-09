@@ -1,0 +1,12 @@
+.alternativeCard__container {
+  display: flex;
+  height: auto;
+}
+
+.logoContainer {
+  padding: 10px;
+}
+
+.descriptionContainer {
+  padding: 10px;
+}
