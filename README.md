@@ -43,3 +43,10 @@ Topics:
 1. Building dynamic pages for software details page
    Video:
    https://drive.google.com/file/d/1apDlrDcJcczM9TJuC8s1iBCu2b5KXHn1/view?usp=sharing
+
+## Day 12
+
+1. Getting information from Firebase
+2. Displaying information on UI
+3. Displaying loading page while data is not ready
+   Video: https://drive.google.com/file/d/17S_Hbk9uY9kiIN-Huo3QAUgaQChqZEW0/view?usp=sharing
