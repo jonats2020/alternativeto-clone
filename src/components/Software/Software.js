@@ -15,56 +15,49 @@ function Software() {
   const [alternativesArray, setAlternativesArray] = useState([]);
 
   // STEP 2
-  // function that gets data from firebase
-  const getData = () => {
-    const softwares = db
-      .collection("softwares")
-      .get()
-      .then(function (data) {
-        // Saving values to state
-        // 1. Create temp array
-        let temporaryArray = [];
-
-        data.docs.forEach(function (document) {
-          // 2. Save each document using array.push()
-          if (document.data().title === "Mozilla Firefox") {
-            temporaryArray.push(document.data());
-          }
-        });
-
-        // 3. Store temp array to state
-        setValuesFromFirebase(temporaryArray);
-      });
-  };
-
-  const getAlternativesData = () => {
-    db.collection("softwares")
-      .get()
-      .then(softwares => {
-        let tempArray = [];
-
-        softwares.docs.forEach(document => {
-          if (valuesFromFirebase[0].alternatives.includes(document.id)) {
-            tempArray.push(document.data());
-          }
-        });
-
-        setAlternativesArray(tempArray);
-      });
-  };
-
-  // STEP 3
-  // UseEffect hook that runs getData() function when
-  // Software.js component is loaded
+  // UseEffect hook that runs getData() function when Software.js component is loaded
+  //
+  // ComponentDidMount();
   useEffect(() => {
-    getData();
+    db.collection("softwares")
+      .where("title", "==", "Mozilla Firefox")
+      // .doc('uUEML1Y8Z5Bzwg7Vvgpq')
+      .get()
+      .then(function (results) {
+        if (results.docs.length > 0) {
+          setValuesFromFirebase(results.docs[0].data());
+        }
+
+        // setValuesFromFirebase(results.data());
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }, []);
 
   // UseEffect hooks that runs getAlternativesData() function when
   // valuesFromFirebase has data meaning on 2nd reload
   useEffect(() => {
     if (valuesFromFirebase.length > 0) {
-      getAlternativesData();
+      db.collection("softwares")
+        .get() // 1. Get all softwares
+        .then(results => {
+          let tempArray = [];
+
+          // 2. Loop through each document
+          results.docs.forEach(document => {
+            // 3. Check if firefox.alternatives has this document.id
+            if (
+              valuesFromFirebase.alternatives.includes(document.data().title)
+            ) {
+              // 4. Store the document in temp
+              tempArray.push(document.data());
+            }
+          });
+
+          // 5. Save all document in temp to state
+          setAlternativesArray(tempArray);
+        });
     }
   }, [valuesFromFirebase]);
 
@@ -79,11 +72,11 @@ function Software() {
 
         <div className="software__detailsContainer">
           <div className="logoContainer">
-            <img src={valuesFromFirebase[0].logo} alt="" height={130} />
+            <img src={valuesFromFirebase.logo} alt="" height={130} />
           </div>
 
           <div className="descriptionContainer">
-            <h2>{valuesFromFirebase[0].title}</h2>
+            <h2>{valuesFromFirebase.title}</h2>
 
             <br />
 
@@ -91,7 +84,7 @@ function Software() {
 
             <br />
 
-            <p>{valuesFromFirebase[0].description}</p>
+            <p>{valuesFromFirebase.description}</p>
           </div>
         </div>
 

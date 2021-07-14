@@ -50,3 +50,8 @@ Topics:
 2. Displaying information on UI
 3. Displaying loading page while data is not ready
    Video: https://drive.google.com/file/d/17S_Hbk9uY9kiIN-Huo3QAUgaQChqZEW0/view?usp=sharing
+
+## Day 13
+
+1. Discussion with the 3 lifecyle of a component
+2. Discussion on how useEffect hook is used in every lifecyle
