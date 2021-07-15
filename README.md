@@ -55,3 +55,9 @@ Topics:
 
 1. Discussion with the 3 lifecyle of a component
 2. Discussion on how useEffect hook is used in every lifecyle
+
+## Day 14
+
+1. Discussion with selecting the right database service for your project
+2. Discussion with selecting the uses of open source libraries to speed up development
+3. Discussion with real-time connection and advantages of using the React framework.
