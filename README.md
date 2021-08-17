@@ -1,6 +1,7 @@
 # Alternativeto Clone
 
-This project is for studying React Native by creating a clone of Alternativeto website. No copyright violation is intended for this demo.
+This project is for tutoring my students in Upwork with React JS by creating a clone of Alternativeto website. 
+No copyright violation is intended for this demo.
 
 ## Day 1
 
